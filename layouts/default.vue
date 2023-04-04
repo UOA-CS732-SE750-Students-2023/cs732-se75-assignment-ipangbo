@@ -5,6 +5,7 @@
  * default.vue
 -->
 <template>
+    <!-- todo: top nav -->
     <header>
         <HeadImage></HeadImage>
     </header>
