@@ -30,7 +30,17 @@
             </div>
             <div class="main-row-reverse"></div>
         </div>
-        <div class="float-tools-container"></div>
+        <div class="float-tools-container">
+            <div class="float-tools">
+                <div class="float-tools-button">
+                    <button class="scroll2top">
+                        <el-icon color="#fff" :size="20">
+                            <Upload />
+                        </el-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
     <slot></slot>
     <footer>
@@ -145,5 +155,28 @@ header {
     color: #ffab00;
     color: var(--analogous_default);
     text-shadow: 0 3px 3px rgba(0, 0, 0, .5);
+}
+
+.float-tools-container .float-tools {
+    float: right;
+    transform: translateY(calc(-100% - 50px)) translateX(calc(100% + 9px));
+    background: rgba(0, 4, 10, .7);
+    box-shadow: 0 10px 15px rgba(48, 52, 63, .2);
+    box-shadow: 0 10px 15px var(--gray_opacity_2);
+    border-radius: 0 8px 8px 0;
+}
+
+.float-tools-container .float-tools-button button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    padding: 0 5px 0 0;
+}
+
+.float-tools-container .float-tools-button button>i {
+    color: #adb2bc;
+    color: var(--gray_6);
+    transition: .25s;
 }
 </style>
