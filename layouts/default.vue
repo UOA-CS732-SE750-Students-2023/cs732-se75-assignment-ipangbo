@@ -33,7 +33,7 @@
         <div class="float-tools-container">
             <div class="float-tools">
                 <div class="float-tools-button">
-                    <button class="scroll2top">
+                    <button class="scroll2top" @click="ElMessage('回顶部')">
                         <el-icon color="#fff" :size="20">
                             <Upload />
                         </el-icon>
@@ -172,11 +172,22 @@ header {
     border: none;
     background: transparent;
     padding: 0 5px 0 0;
+    cursor: pointer;
 }
 
 .float-tools-container .float-tools-button button>i {
     color: #adb2bc;
     color: var(--gray_6);
     transition: .25s;
+}
+
+.top-slider-nav nav li a:hover {
+    color: #ffab00;
+    color: var(--analogous_default);
+}
+
+.float-tools-container .float-tools-button button:hover>i {
+    color: #ffab00;
+    color: var(--analogous_default);
 }
 </style>
