@@ -3,3 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+[tabindex],
+[tabindex]:focus,
+a,
+a:focus,
+button,
+input,
+textarea {
+    outline: none !important;
+    text-decoration: none !important;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
