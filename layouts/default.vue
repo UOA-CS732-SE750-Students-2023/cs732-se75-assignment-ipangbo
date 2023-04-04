@@ -6,7 +6,7 @@
 -->
 <template>
     <header>
-        header
+        <HeadImage></HeadImage>
     </header>
     <slot></slot>
     <footer>
@@ -17,4 +17,11 @@
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style scoped>
+header {
+    height: 230px;
+    background: linear-gradient(#505460, #707480);
+    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--white_default);
+}
+</style>

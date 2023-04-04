@@ -1,7 +1,9 @@
 <template>
-  <NuxtLayout :name="layout">
-    <NuxtPage></NuxtPage>
-  </NuxtLayout>
+  <div class="wrapper">
+    <NuxtLayout :name="layout">
+      <NuxtPage></NuxtPage>
+    </NuxtLayout>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -17,3 +19,11 @@ useHead({
   },
 })
 </script>
+
+<style scoped>
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+</style>
