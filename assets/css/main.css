@@ -1,0 +1,66 @@
+:root {
+    --primary_light_3: #76c5ff;
+    --primary_light_2: #59b8ff;
+    --primary_light_1: #3dacff;
+    --primary_default: #20A0FF;
+    --primary_dark_1: #0394ff;
+    --primary_dark_2: #0084e6;
+    --primary_dark_3: #0073c9;
+    --primary_opacity_0: rgba(32, 160, 255, 0);
+    --primary_opacity_1: rgba(32, 160, 255, 0.1);
+    --primary_opacity_2: rgba(32, 160, 255, 0.2);
+    --primary_opacity_3: rgba(32, 160, 255, 0.3);
+    --primary_opacity_4: rgba(32, 160, 255, 0.4);
+    --primary_opacity_5: rgba(32, 160, 255, 0.5);
+    --primary_opacity_6: rgba(32, 160, 255, 0.6);
+    --primary_opacity_7: rgba(32, 160, 255, 0.7);
+    --primary_opacity_8: rgba(32, 160, 255, 0.8);
+    --primary_opacity_9: rgba(32, 160, 255, 0.9);
+}
+
+:root {
+    --analogous_light_3: #76d5ff;
+    --analogous_light_2: #59ccff;
+    --analogous_light_1: #3dc3ff;
+    --analogous_default: #20baff;
+    --analogous_dark_1: #03b1ff;
+    --analogous_dark_2: #009fe6;
+    --analogous_dark_3: #008bc9;
+}
+
+:root {
+    --white_default: #FFFFFF;
+    --white_opacity_0: rgba(255, 255, 255, 0);
+    --white_opacity_1: rgba(255, 255, 255, 0.1);
+    --white_opacity_2: rgba(255, 255, 255, 0.2);
+    --white_opacity_3: rgba(255, 255, 255, 0.3);
+    --white_opacity_4: rgba(255, 255, 255, 0.4);
+    --white_opacity_5: rgba(255, 255, 255, 0.5);
+    --white_opacity_6: rgba(255, 255, 255, 0.6);
+    --white_opacity_7: rgba(255, 255, 255, 0.7);
+    --white_opacity_8: rgba(255, 255, 255, 0.8);
+    --white_opacity_9: rgba(255, 255, 255, 0.9);
+}
+
+:root {
+    --gray_0: #1F2D3D;
+    --gray_1: #475669;
+    --gray_2: #657487;
+    --gray_3: #738192;
+    --gray_4: #8492A6;
+    --gray_5: #99A9BF;
+    --gray_6: #CAD1DB;
+    --gray_7: #D8E0EA;
+    --gray_8: #EFF2F7;
+    --gray_9: #F0F2F7;
+    --gray_opacity_0: rgba(31, 45, 61, 0);
+    --gray_opacity_1: rgba(31, 45, 61, 0.1);
+    --gray_opacity_2: rgba(31, 45, 61, 0.2);
+    --gray_opacity_3: rgba(31, 45, 61, 0.3);
+    --gray_opacity_4: rgba(31, 45, 61, 0.4);
+    --gray_opacity_5: rgba(31, 45, 61, 0.5);
+    --gray_opacity_6: rgba(31, 45, 61, 0.6);
+    --gray_opacity_7: rgba(31, 45, 61, 0.7);
+    --gray_opacity_8: rgba(31, 45, 61, 0.8);
+    --gray_opacity_9: rgba(31, 45, 61, 0.9);
+}
