@@ -33,7 +33,7 @@
         <div class="float-tools-container">
             <div class="float-tools">
                 <div class="float-tools-button">
-                    <button class="scroll2top" @click="ElMessage('回顶部')">
+                    <button class="scroll2top" @click="ElMessage({ message: '回顶部', duration: 3000 })">
                         <el-icon color="#fff" :size="20">
                             <Upload />
                         </el-icon>
@@ -45,7 +45,7 @@
     <slot></slot>
     <footer>
         footer
-        <ElButton @click="ElMessage('Succeed')"></ElButton>
+
     </footer>
 </template>
 
