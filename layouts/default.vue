@@ -44,8 +44,7 @@
     </div>
     <slot></slot>
     <footer>
-        footer
-
+        <TheFooter></TheFooter>
     </footer>
 </template>
 
