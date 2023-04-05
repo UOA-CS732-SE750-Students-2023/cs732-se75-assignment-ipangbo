@@ -10,12 +10,14 @@
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import "~/assets/css/base.css";
 import "~/assets/css/main.css";
+import { register } from 'swiper/element/bundle';
 
 const nuxtApp = useNuxtApp()
 // console.log(nuxtApp)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   nuxtApp.vueApp.component(key, component)
 }
+register();
 
 
 const layout = "default"

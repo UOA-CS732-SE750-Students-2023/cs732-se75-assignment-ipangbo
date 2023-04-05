@@ -12,7 +12,9 @@
     <div id="main" class="content-container r-container">
         <div class="r-content">
             <div class="top-slider-nav">
-                <div class="pf-slider"></div>
+                <div class="pf-slider">
+                    <PostsCarousel></PostsCarousel>
+                </div>
                 <nav>
                     <li class="current-menu-item">
                         <a href="/">Home</a>
@@ -48,7 +50,10 @@
     </footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PostsCarousel from '~/components/PostsCarousel.vue';
+
+</script>
 
 <style scoped>
 header {
