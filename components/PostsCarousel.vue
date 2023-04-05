@@ -454,7 +454,8 @@ const mockCarousel = [
 #card-flip-slider>.navigator .next i,
 #card-flip-slider>.navigator .prev i {
     opacity: 0;
-    transition: opacity .5s, transform 0s .5s
+    /* transition: opacity .5s, transform 0s .5s */
+    transition: all .5s;
 }
 
 @media (min-width: 768px) and (max-width:991px),
@@ -617,7 +618,6 @@ const mockCarousel = [
 #card-flip-slider>.navigator .next:hover i,
 #card-flip-slider>.navigator .prev:hover i {
     opacity: 1;
-    /* visibility: visible; */
     transform: translateX(0);
     transition: .5s;
     box-shadow: inset 0 5px 5px rgba(0, 0, 0, .2), 0 1px 1px hsla(0, 0%, 100%, .1);
@@ -626,5 +626,9 @@ const mockCarousel = [
     width: 40px;
     line-height: 40px;
     text-align: center;
+}
+
+#card-flip-slider>.navigator .prev i svg {
+    opacity: 1;
 }
 </style>
