@@ -8,19 +8,18 @@
     <div pandaslider="" id="card-flip-slider" interval-time="4000" view="2" show-anchor="" hover-disable-interval=""
         allow-anchor-click="" allow-keyboard="" allow-swipe="" init="">
         <div class="showBox ">
-            <div v-for="(item, index) in mockCarousel" :class="getClassForIndex(index)">
+            <div v-for="(item, index) in props.slides" :class="getClassForIndex(index)" :key="index">
                 <a class="page" :href="item.link">
-                    <div class="badage">最新文章</div>
-                    <h2 class="title">{{ item.title.rendered }}</h2>
+                    <div class="badge" :class="colorClassForSlideBadge(item.badge)">{{ textForSlideBadge(item.badge) }}
+                    </div>
+                    <h2 class="title">{{ item.title }}</h2>
                     <div class="category">
                         <el-icon :size="15">
                             <Folder />
                         </el-icon>
-                        <span v-for="category in item.categories">
-                            {{ category }}/
-                        </span>
+                        {{ item.category }}
                     </div>
-                    <img class="background blur" src="https://tc.qn.ipangbo.cn/image/Cover/230329.png">
+                    <img class="background blur" :src="item.featuredmedia">
                 </a>
             </div>
 
@@ -38,78 +37,54 @@
             </div>
         </div>
         <div class="anchor ">
-            <div v-for="index in mockCarousel.length" :class="(index - 1) === currentIndex ? 'active' : ''">
+            <div v-for="index in props.slides.length" :class="(index - 1) === currentIndex ? 'active' : ''">
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { register } from 'swiper/element/bundle';
-register();
 
-const mockCarousel = [
-    {
-        "id": 36,
-        "link": "http://localhost:38099/linux/36/",
-        "title": {
-            "rendered": "What if Ubuntu uses the wrong mirror? CVM rescue data diary"
-        },
-        "featured_media": 38,
-        "categories": [
-            1
-        ]
-    },
-    {
-        "id": 33,
-        "link": "http://localhost:38099/life/33/",
-        "title": {
-            "rendered": "Best practices of cross-border finance for studying in New Zealand"
-        },
-        "featured_media": 35,
-        "categories": [
-            2
-        ]
-    },
-    {
-        "id": 29,
-        "link": "http://localhost:38099/website-technique/29/",
-        "title": {
-            "rendered": "How to automatically generate article catalogs based on page tags? Analysis + code explanation"
-        },
-        "featured_media": 32,
-        "categories": [
-            3
-        ]
-    },
-    {
-        "id": 24,
-        "link": "http://localhost:38099/development/24/",
-        "title": {
-            "rendered": "The solution to the problem that the ssh connection localhost still needs to enter a password after configuring the key pair"
-        },
-        "featured_media": 26,
-        "categories": [
-            4
-        ]
-    },
-    {
-        "id": 19,
-        "link": "http://localhost:38099/development/19/",
-        "title": {
-            "rendered": "Installation of EnlighterJS&#8211;WordPress code highlighting plug-in and custom CSS (beautification)"
-        },
-        "featured_media": 21,
-        "categories": [
-            5
-        ]
+interface SlideComp {
+    id: number;
+    link: string;
+    title: string;
+    featuredmedia: string;
+    category: string[];
+    badge: "new" | "pinned";
+}
+
+const props = defineProps<{
+    slides: SlideComp[]
+}>()
+
+const colorClassForSlideBadge = (badge: string) => {
+    if (badge === "new") {
+        return "blue";
+    } else if (badge === "pinned") {
+        return "";
+    } else {
+        return "";
     }
-]
+}
+
+const textForSlideBadge = (badge: string) => {
+    switch (badge) {
+        case "new":
+            return "Newest";
+        case "pinned":
+            return "Pinned";
+    }
+}
+
+
+
+
 
 const currentIndex = ref(0);
 
 const getClassForIndex = (index: number): string => {
-    const itemCount = mockCarousel.length;
+    const itemCount = props.slides.length;
     switch (index) {
         case (currentIndex.value - 2 + itemCount) % itemCount:
             return "past1";
@@ -130,12 +105,12 @@ const handlePrevNavi = () => {
     if (currentIndex.value > 0) {
         currentIndex.value--;
     } else {
-        currentIndex.value = mockCarousel.length - 1;
+        currentIndex.value = props.slides.length - 1;
     }
 }
 
 const handleNextNavi = () => {
-    if (currentIndex.value < mockCarousel.length - 1) {
+    if (currentIndex.value < props.slides.length - 1) {
         currentIndex.value++;
     } else {
         currentIndex.value = 0;
@@ -267,7 +242,7 @@ const handleNextNavi = () => {
     filter: blur(3px) brightness(.8)
 }
 
-#card-flip-slider .page>.badage {
+#card-flip-slider .page>.badge {
     position: absolute;
     top: 0;
     right: 15px;
@@ -286,7 +261,7 @@ const handleNextNavi = () => {
     text-shadow: 0 -1px var(--primary_dark_1)
 }
 
-#card-flip-slider .page>.badage.blue {
+#card-flip-slider .page>.badge.blue {
     background: linear-gradient(#20baff, #20a0ff 30%, #59b8ff);
     border: 1px solid #0394ff;
     box-shadow: 0 3px 5px rgba(32, 160, 255, .3), 0 3px 5px rgba(0, 0, 0, .2), inset 0 0 0 1px hsla(0, 0%, 100%, .3);
@@ -595,9 +570,5 @@ const handleNextNavi = () => {
     width: 40px;
     line-height: 40px;
     text-align: center;
-}
-
-#card-flip-slider>.navigator .prev i svg {
-    opacity: 1;
 }
 </style>

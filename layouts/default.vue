@@ -13,7 +13,7 @@
         <div class="r-content">
             <div class="top-slider-nav">
                 <div class="pf-slider">
-                    <PostsCarousel></PostsCarousel>
+                    <PostsCarousel :slides="slides as any"></PostsCarousel>
                 </div>
                 <nav>
                     <li class="current-menu-item">
@@ -52,6 +52,19 @@
 
 <script setup lang="ts">
 import PostsCarousel from '~/components/PostsCarousel.vue';
+import { usePostsStore } from '~/stores/posts';
+import { Slide } from '~/types/PostTypes';
+
+const route = useRoute();
+const postsStore = usePostsStore();
+
+const slides = ref<Slide[]>([]);
+if (route.path === "/") {
+    const homePagePinnedSlides = await postsStore.getHomePagePinnedSlides();
+    const homePageNewestSlides = await postsStore.getHomePageNewestSlides();
+
+    slides.value = homePagePinnedSlides.concat(homePageNewestSlides);
+}
 
 </script>
 

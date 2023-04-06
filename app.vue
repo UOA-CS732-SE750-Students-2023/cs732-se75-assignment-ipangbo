@@ -12,7 +12,6 @@ import "~/assets/css/base.css";
 import "~/assets/css/main.css";
 
 const nuxtApp = useNuxtApp()
-// console.log(nuxtApp)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   nuxtApp.vueApp.component(key, component)
 }
