@@ -957,17 +957,4 @@
 
 </script>
 
-<style scoped>
-#wrapper #main .main-row-reverse .main-column,
-#wrapper #main .main-row .main-column {
-    width: calc(100% - 230px);
-    flex-grow: 0;
-    flex-shrink: 0;
-    background: #fff;
-    background: var(--white_default);
-    box-shadow: inset 0 0 0 1px #fff;
-    box-shadow: 0 0 0 1px var(--white_default) inset;
-    border-radius: 0 0 5px 0;
-    overflow: hidden;
-}
-</style>
+<style scoped></style>

@@ -18,6 +18,8 @@ export default defineNuxtConfig({
             blogTitle: 'R theme by Nuxt',
             baseURL: 'http://localhost:38099/wp-json/wp/v2',
             // baseURL: 'https://www.ipangbo.cn/wp-json/wp/v2',
+            authorName: 'Bo Pang',
+            authorSlogan: 'Science, Sky, Clock Tower'
         },
     },
 

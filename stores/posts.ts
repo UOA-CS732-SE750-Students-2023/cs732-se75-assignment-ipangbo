@@ -19,7 +19,6 @@ export const usePostsStore = defineStore("posts", () => {
                 category: orig["_embedded"]["wp:term"][0].map((item: any) => item.name).join('/'),
                 badge: "new",
             });
-            console.log(res);
 
             added[orig.id] = true;
         })
