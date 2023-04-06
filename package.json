@@ -15,7 +15,6 @@
   "dependencies": {
     "@pinia/nuxt": "^0.4.7",
     "@types/node": "^18.15.11",
-    "pinia": "^2.0.33",
-    "swiper": "^9.2.0"
+    "pinia": "^2.0.33"
   }
 }
