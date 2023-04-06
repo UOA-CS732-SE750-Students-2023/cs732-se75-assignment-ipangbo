@@ -5,107 +5,41 @@
  * PostsCarousel.vue
 -->
 <template>
-    <div pandaslider="" id="card-flip-slider" prev-text="<i class=pandastudio-icons-left></i>"
-        next-text="<i class=pandastudio-icons-right></i>" interval-time="4000" view="2" show-anchor=""
-        hover-disable-interval="" allow-anchor-click="" allow-keyboard="" allow-swipe="" init="">
+    <div pandaslider="" id="card-flip-slider" interval-time="4000" view="2" show-anchor="" hover-disable-interval=""
+        allow-anchor-click="" allow-keyboard="" allow-swipe="" init="">
         <div class="showBox ">
-            <div class="future0"><a class="page" href="https://www.ipangbo.cn/linux/564.html">
+            <div v-for="(item, index) in mockCarousel" :class="getClassForIndex(index)">
+                <a class="page" :href="item.link">
                     <div class="badage">最新文章</div>
-                    <h2 class="title">Ubuntu换错源了怎么办？云服务器抢救数据日记</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>Linux / 网站</div><img post-id="564"
-                        fifu-featured="1" class="background blur" src="https://tc.qn.ipangbo.cn/image/Cover/230329.png">
-                </a></div>
-            <div class="future1"><a class="page" href="https://www.ipangbo.cn/%e7%95%99%e5%ad%a6/546.html">
-                    <div class="badage">最新文章</div>
-                    <h2 class="title">新西兰留学跨境金融最佳实践</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>留学</div><img post-id="546"
-                        fifu-featured="1" class="background blur" src="https://tc1.ipangbo.cn/image/Cover/230217.png">
-                </a></div>
-            <div class="hidden"><a class="page" href="https://www.ipangbo.cn/site/518.html">
-                    <div class="badage">最新文章</div>
-                    <h2 class="title">EnlighterJS——WordPress代码高亮插件的安装与自定义CSS（美化）</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>网站</div><img post-id="518"
-                        fifu-featured="1" class="background blur" src="https://tc1.ipangbo.cn/image/Cover/230126.png">
-                </a></div>
-            <div class="hidden"><a class="page" href="https://www.ipangbo.cn/build/468.html">
-                    <div class="badage">最新文章</div>
-                    <h2 class="title">Anaconda在Windows下优化备忘录</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>开发 Build</div><img post-id="468"
-                        fifu-featured="1" class="background blur" src="https://tc1.ipangbo.cn/image/Cover/230117.png">
-                </a></div>
-            <div class="hidden"><a class="page" href="https://www.ipangbo.cn/site/360.html">
-                    <div class="badage">最新文章</div>
-                    <h2 class="title">在Ubuntu服务器上安装Docker以及Portainer</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>网站</div><img post-id="360"
-                        fifu-featured="1" class="background blur" src="https://tc1.ipangbo.cn/image/Cover/230106.png">
-                </a></div>
-            <div class="hidden"><a class="page" href="https://www.ipangbo.cn/site/151.html">
-                    <div class="badage blue">热评文章</div>
-                    <h2 class="title">在线VScode——Code-Server：使用宝塔面板可视化搭建</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>网站</div><img class="background blur"
-                        src="https://www.ipangbo.cn/wp-content/uploads/2021/02/code.jpg">
-                </a></div>
-            <div class="hidden"><a class="page" href="https://www.ipangbo.cn/build/251.html">
-                    <div class="badage blue">热评文章</div>
-                    <h2 class="title">Ubuntu 22.04 更换阿里源</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>开发 Build</div><img
-                        class="background blur" src="https://www.ipangbo.cn/wp-content/uploads/2022/04/u22-scaled-1.jpeg">
-                </a></div>
-            <div class="hidden"><a class="page" href="https://www.ipangbo.cn/linux/272.html">
-                    <div class="badage blue">阅读最多</div>
-                    <h2 class="title">Ubuntu22.04使用apt安装MySQL8指南</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>Linux</div><img post-id="272"
-                        fifu-featured="1" class="background blur" src="https://tc1.ipangbo.cn/image/Cover/220522.png">
-                </a></div>
-            <div class="hidden"><a class="page" href="https://www.ipangbo.cn/linux/383.html">
-                    <div class="badage blue">阅读最多</div>
-                    <h2 class="title">Ubuntu 22.04 解决IBus中文输入法无法跟随光标</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>Linux</div><img class="background blur"
-                        src="https://www.ipangbo.cn/wp-content/uploads/2022/04/截图-2022-04-22-20-29-09.png">
-                </a></div>
-            <div class="past1"><a class="page" href="https://www.ipangbo.cn/build/200.html">
-                    <div class="badage blue">阅读最多</div>
-                    <h2 class="title">关于配置了密钥对之后ssh连接localhost仍然需要输入密码的问题的解决方法</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>开发 Build</div><img post-id="200"
-                        fifu-featured="1" class="background blur" src="https://tc1.ipangbo.cn/image/Cover/210525.png">
-                </a></div>
-            <div class="past0"><a class="page" href="https://www.ipangbo.cn/site/220.html">
-                    <div class="badage blue">阅读最多</div>
-                    <h2 class="title">NextCloud配置备忘录</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>网站</div><img class="background blur"
-                        src="https://www.ipangbo.cn/wp-content/uploads/2021/09/top-homeimage@2x.png">
-                </a></div>
-            <div class="current"><a class="page" href="https://www.ipangbo.cn/game/344.html">
-                    <div class="badage blue">阅读最多</div>
-                    <h2 class="title">《咸鱼大冲关》2023题库</h2>
-                    <div class="category"><i class="pandastudio-icons-category"></i>游戏</div><img post-id="344"
-                        fifu-featured="1" class="background blur"
-                        src="https://img.wbto.cn/uploadimg/image/20221114/20221114134933_61695.jpg">
-                </a></div>
+                    <h2 class="title">{{ item.title.rendered }}</h2>
+                    <div class="category">
+                        <el-icon :size="15">
+                            <Folder />
+                        </el-icon>
+                        <span v-for="category in item.categories">
+                            {{ category }}/
+                        </span>
+                    </div>
+                    <img class="background blur" src="https://tc.qn.ipangbo.cn/image/Cover/230329.png">
+                </a>
+            </div>
+
         </div>
         <div class="navigator ">
-            <div class="prev">
+            <div class="prev" @click="handlePrevNavi">
                 <el-icon>
                     <Back />
                 </el-icon>
             </div>
-            <div class="next"><el-icon>
+            <div class="next" @click="handleNextNavi">
+                <el-icon>
                     <Right />
-                </el-icon></div>
+                </el-icon>
+            </div>
         </div>
         <div class="anchor ">
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class="active"></div>
+            <div v-for="index in mockCarousel.length" :class="(index - 1) === currentIndex ? 'active' : ''">
+            </div>
         </div>
     </div>
 </template>
@@ -123,8 +57,7 @@ const mockCarousel = [
         },
         "featured_media": 38,
         "categories": [
-            3,
-            23
+            1
         ]
     },
     {
@@ -135,7 +68,7 @@ const mockCarousel = [
         },
         "featured_media": 35,
         "categories": [
-            29
+            2
         ]
     },
     {
@@ -146,7 +79,7 @@ const mockCarousel = [
         },
         "featured_media": 32,
         "categories": [
-            23
+            3
         ]
     },
     {
@@ -157,7 +90,7 @@ const mockCarousel = [
         },
         "featured_media": 26,
         "categories": [
-            9
+            4
         ]
     },
     {
@@ -168,10 +101,46 @@ const mockCarousel = [
         },
         "featured_media": 21,
         "categories": [
-            9
+            5
         ]
     }
 ]
+
+const currentIndex = ref(0);
+
+const getClassForIndex = (index: number): string => {
+    const itemCount = mockCarousel.length;
+    switch (index) {
+        case (currentIndex.value - 2 + itemCount) % itemCount:
+            return "past1";
+        case (currentIndex.value - 1 + itemCount) % itemCount:
+            return "past0";
+        case currentIndex.value:
+            return "current";
+        case (currentIndex.value + 1) % itemCount:
+            return "future0";
+        case (currentIndex.value + 2) % itemCount:
+            return "future1";
+        default:
+            return "hidden";
+    }
+}
+
+const handlePrevNavi = () => {
+    if (currentIndex.value > 0) {
+        currentIndex.value--;
+    } else {
+        currentIndex.value = mockCarousel.length - 1;
+    }
+}
+
+const handleNextNavi = () => {
+    if (currentIndex.value < mockCarousel.length - 1) {
+        currentIndex.value++;
+    } else {
+        currentIndex.value = 0;
+    }
+}
 </script>
 
 <style scoped>
