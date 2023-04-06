@@ -5,8 +5,7 @@
  * PostsCarousel.vue
 -->
 <template>
-    <div pandaslider="" id="card-flip-slider" interval-time="4000" view="2" show-anchor="" hover-disable-interval=""
-        allow-anchor-click="" allow-keyboard="" allow-swipe="" init="">
+    <div id="card-flip-slider" interval-time="4000">
         <div class="showBox ">
             <div v-for="(item, index) in props.slides" :class="getClassForIndex(index)" :key="index">
                 <a class="page" :href="item.link">
@@ -122,7 +121,7 @@ const handleNextNavi = () => {
 #card-flip-slider {
     height: 350px;
     position: relative;
-    display: none
+    display: block;
 }
 
 @media (min-width: 768px) and (max-width:991px),
@@ -137,10 +136,6 @@ const handleNextNavi = () => {
     #card-flip-slider {
         height: 220px
     }
-}
-
-#card-flip-slider[init] {
-    display: block
 }
 
 #card-flip-slider .showBox {
