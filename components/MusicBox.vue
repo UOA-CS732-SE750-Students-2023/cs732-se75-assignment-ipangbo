@@ -54,19 +54,19 @@
                     </div>
                 </div>
             </div>
-            <ClientOnly>
-                <ul class="songs">
-                    <li v-for="(item, index) in playList" @click="togglePlay(item)" :class="item.status" :key="index
-                    ">
-                        <div class="song_name">{{ item.name }}</div>
-                        <div class="song_state">
-                            <div class="playing"></div>
-                            <div class="error"></div>
-                            <div class="loading"></div>
-                        </div>
-                    </li>
-                </ul>
-            </ClientOnly>
+            <!-- <ClientOnly> -->
+            <ul class="songs">
+                <li v-for="(item, index) in playList" @click="togglePlay(item)" :class="item.status" :key="index
+                ">
+                    <div class="song_name">{{ item.name }}</div>
+                    <div class="song_state">
+                        <div class="playing"></div>
+                        <div class="error"></div>
+                        <div class="loading"></div>
+                    </div>
+                </li>
+            </ul>
+            <!-- </ClientOnly> -->
         </div>
     </div>
 </template>
@@ -102,6 +102,7 @@ if (!process.server) {
         audioElements.forEach((audio, index) => {
             if (index === track.id - 1) {
                 if (audio.paused) {
+                    // If click new music, play new music.
                     audio.currentTime = 0;
                     audio.play().then(() => {
                         track.status = 'is-playing';
@@ -109,6 +110,7 @@ if (!process.server) {
                         currentPlaying.value = track;
                     });
                 } else {
+                    // If click playing music, pause.
                     audio.pause();
                     track.status = 'normal';
                 }
@@ -131,6 +133,8 @@ if (!process.server) {
                 if (currentPlaying.value && index === currentPlaying.value.id - 1) {
                     audio.play().then(() => {
                         playerStatus.value = 'is-playing';
+                        if (currentPlaying.value)
+                            currentPlaying.value.status = 'is-playing';
                     })
                 }
             })
