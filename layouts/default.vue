@@ -1042,59 +1042,7 @@
                         <div class="blogger-name">{{ useRuntimeConfig().public.authorName }}</div>
                         <div class="blogger-description">{{ useRuntimeConfig().public.authorSlogan }}</div>
                     </div>
-                    <div class="sidebar-sticky">
-                        <div class="sidebar-selector">
-                            <a data-sidebar-key="custom1" class="active" click="this.handleSidebarSelectorClick(el)">
-                                <el-icon>
-                                    <HomeFilled />
-                                </el-icon>
-                            </a><a data-sidebar-key="custom2" click="this.handleSidebarSelectorClick(el)"><el-icon>
-                                    <Promotion />
-                                </el-icon></a>
-                        </div>
-                        <div class="sidebar-content pf_scroller pf_scroller_is_mac">
-                            <div class="sidebar-panel active" data-sidebar-key="custom1" style="display:block">
-                                <div id="pf_search-3" class="widget widget_pf_search">
-                                    <div class="pf_search r-container r-sm">
-                                        <form action="" class="r-content pd-ripple"><input type="search"
-                                                placeholder="Search..." autocomplete="off"><button
-                                                class="pd-ripple-trigger"></button></form>
-                                    </div>
-                                </div>
-                                <div id="pf_toc_widget-3" class="widget widget_pf_toc_widget" style="display: none;">
-                                    <div class="toc">
-                                        <ul data-toc-min-number=""></ul>
-                                    </div>
-                                </div>
-                                <SidebarNavi></SidebarNavi>
-                                <MusicBox></MusicBox>
-                            </div>
-                            <div class="sidebar-panel" data-sidebar-key="custom2" style="display:none">
-                                <div id="pf_microblog-3" class="widget widget_pf_microblog">
-                                    <div class="list-box">
-                                        <div class="list-title"><span class="title-image"><img
-                                                    src="https://sdn.geekzu.org/avatar/641dc07b0ec22b5dd4a5be73766c49be?s=96&amp;d=https%3A%2F%2F1.gravatar.com%2Favatar%2Faf124cedd8c311f57720e7b1e675edab&amp;r=g"></span><span
-                                                class="title-text"><span></span></span></div>
-                                        <ul class="list">
-
-                                            <li class="clearfix">
-                                                <div class="content">
-                                                    <p><!-- wp:paragraph --></p>
-                                                    <p>启用了R主题</p>
-                                                    <p><!-- /wp:paragraph --></p>
-
-                                                </div>
-                                                <div class="date"><i class="pandastudio-icons-clock"></i>
-                                                    2023-04-01
-                                                </div>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <TheSidebar></TheSidebar>
                 </aside>
             </div>
         </div>
@@ -1130,5 +1078,6 @@ if (route.path === "/") {
 
     slides.value = homePagePinnedSlides.concat(homePageNewestSlides);
 }
+
 
 </script>
