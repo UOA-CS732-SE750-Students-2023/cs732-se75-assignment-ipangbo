@@ -78,7 +78,6 @@ const currentPlaying: Ref<MusicBoxItem | undefined> = ref();
 const currentTimes = ref<number[]>(Array(playList.length).fill(0));
 const durations = ref<number[]>(Array(playList.length).fill(0));
 const playerStatus = ref('normal');
-const progressBar = ref(0);
 
 let togglePlay: any;
 let pause: any;
