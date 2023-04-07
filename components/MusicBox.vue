@@ -17,7 +17,7 @@
                     <div class="icon">
                         <img class="disc" src="~/assets/img/disc.png"
                             srcset="~/assets/img/disc@2x.png 2x, ~/assets/img/disc@3x.png 3x">
-                        <img class="discbar" :class="currentPlaying?.status" src="~/assets/img/discbar.png"
+                        <img class="discbar" :class="playerStatus" src="~/assets/img/discbar.png"
                             srcset="~/assets/img/discbar@2x.png 2x, ~/assets/img/discbar@3x.png 3x">
                     </div>
                     <div class="info">
@@ -26,9 +26,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="controls">
+                <div class="controls" :class="playerStatus">
                     <div class="pf_progress">
-                        <div class="processing" style="width:20%">
+                        <div class="processing" :style="`width: ${getProgressBar}%`">
                             <div class="dragger"></div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                                 <DArrowLeft />
                             </el-icon>
                         </button>
-                        <button class="play" @click="pause">
+                        <button class="togglePlay" @click="pause">
                             <el-icon class="pandastudio-icons-music-play">
                                 <VideoPlay />
                             </el-icon>
@@ -56,7 +56,7 @@
             </div>
             <ClientOnly>
                 <ul class="songs">
-                    <li v-for="(item, index) in playList" @click="play(item)" :class="item.status" :key="index
+                    <li v-for="(item, index) in playList" @click="togglePlay(item)" :class="item.status" :key="index
                     ">
                         <div class="song_name">{{ item.name }}</div>
                         <div class="song_state">
@@ -76,15 +76,13 @@ import { MusicBoxItem } from '~/types/PostTypes'
 const playList = useRuntimeConfig().public.musicBoxPlayList as MusicBoxItem[];
 const currentPlaying: Ref<MusicBoxItem | undefined> = ref();
 const currentTimes = ref<number[]>(Array(playList.length).fill(0));
+const durations = ref<number[]>(Array(playList.length).fill(0));
+const playerStatus = ref('normal');
+const progressBar = ref(0);
 
-// const playMusic = (item: MusicBoxItem) => {
-//     currentPlaying.value = item;
-//     const audio = new Audio(item.url);
-//     audio.play();
-//     item.status = 'is-playing';
-// }
-let play: any;
+let togglePlay: any;
 let pause: any;
+let getProgressBar: any;
 
 if (!process.server) {
     const audioElements: HTMLAudioElement[] = playList.map(track => {
@@ -92,17 +90,22 @@ if (!process.server) {
         audio.addEventListener("ended", () => {
             audio.currentTime = 0;
         });
+        audio.addEventListener("loadedmetadata", () => {
+            durations.value[track.id - 1] = audio.duration;
+        });
         return audio;
     });
 
-    play = (track: MusicBoxItem) => {
+    togglePlay = (track: MusicBoxItem) => {
         playList.forEach(track => track.status = 'normal');
         track.status = 'is-loading';
         audioElements.forEach((audio, index) => {
             if (index === track.id - 1) {
                 if (audio.paused) {
+                    audio.currentTime = 0;
                     audio.play().then(() => {
                         track.status = 'is-playing';
+                        playerStatus.value = 'is-playing';
                         currentPlaying.value = track;
                     });
                 } else {
@@ -117,15 +120,32 @@ if (!process.server) {
     }
 
     pause = () => {
-        playList.forEach(track => track.status = 'normal');
-        audioElements.forEach((audio, index) => {
-            audio.pause();
-        });
+        if (playerStatus.value === 'is-playing') {
+            playList.forEach(track => track.status = 'normal');
+            audioElements.forEach((audio, index) => {
+                audio.pause();
+                playerStatus.value = 'normal';
+            });
+        } else if (playerStatus.value === 'normal') {
+            audioElements.forEach((audio, index) => {
+                if (currentPlaying.value && index === currentPlaying.value.id - 1) {
+                    audio.play().then(() => {
+                        playerStatus.value = 'is-playing';
+                    })
+                }
+            })
+        }
     }
 
     const updateCurrentTimes = () => {
         currentTimes.value = audioElements.map(audio => audio.currentTime);
     };
+
+    getProgressBar = computed(() => {
+        if (currentPlaying.value) {
+            return ((currentTimes.value[currentPlaying.value.id - 1] / durations.value[currentPlaying.value.id - 1]) * 100)
+        }
+    })
 
     let interval: number;
 
@@ -133,6 +153,10 @@ if (!process.server) {
         interval = window.setInterval(() => {
             updateCurrentTimes();
         }, 1000);
+    });
+
+    onUnmounted(() => {
+        clearInterval(interval);
     });
 
 }
@@ -149,7 +173,7 @@ const displayTime = (time: number | undefined) => {
 </script>
 
 <style scoped>
-button.play {
+button.togglePlay {
     display: flex;
     align-items: center;
 }
