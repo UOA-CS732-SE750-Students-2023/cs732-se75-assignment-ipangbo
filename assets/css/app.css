@@ -9304,7 +9304,7 @@ button.close {
     background: url(theme_modules/pdMessage/pdnotify.success.before.svg?h=1iN9N) no-repeat 50%/65% 65%, linear-gradient(0deg, #52bb1d, #95d34b)
 }
 
-@font-face {
+/* @font-face {
     font-family: R;
     src: url(theme_modules/Bauhaus/R-Regular.woff?h=2_RYr) format("woff");
     font-style: normal;
@@ -9324,7 +9324,7 @@ button.close {
     src: url(theme_modules/pandaIcons/pandastudio-icons.eot?h=M4GzV#iefix) format("embedded-opentype"), url(theme_modules/pandaIcons/pandastudio-icons.woff2?h=-CTMB) format("woff2"), url(theme_modules/pandaIcons/pandastudio-icons.woff?h=3xJEk) format("woff"), url(theme_modules/pandaIcons/pandastudio-icons.ttf?h=yguGv) format("truetype"), url(theme_modules/pandaIcons/pandastudio-icons.svg?h=W_uQV#pandastudio-icons) format("svg");
     font-weight: 400;
     font-style: normal
-}
+} */
 
 [class*=" pandastudio-icons"],
 [class^=pandastudio-icons] {

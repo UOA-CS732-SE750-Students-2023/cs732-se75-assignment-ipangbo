@@ -17,7 +17,7 @@
                     <div class="icon">
                         <img class="disc" src="~/assets/img/disc.png"
                             srcset="~/assets/img/disc@2x.png 2x, ~/assets/img/disc@3x.png 3x">
-                        <img class="discbar" src="~/assets/img/discbar.png"
+                        <img class="discbar" :class="currentPlaying?.status" src="~/assets/img/discbar.png"
                             srcset="~/assets/img/discbar@2x.png 2x, ~/assets/img/discbar@3x.png 3x">
                     </div>
                     <div class="info">
