@@ -1056,8 +1056,9 @@
                             <div class="sidebar-panel active" data-sidebar-key="custom1" style="display:block">
                                 <div id="pf_search-3" class="widget widget_pf_search">
                                     <div class="pf_search r-container r-sm">
-                                        <form action="" class="r-content pd-ripple"><input type="search" placeholder="搜索..."
-                                                autocomplete="off"><button class="pd-ripple-trigger"></button></form>
+                                        <form action="" class="r-content pd-ripple"><input type="search"
+                                                placeholder="Search..." autocomplete="off"><button
+                                                class="pd-ripple-trigger"></button></form>
                                     </div>
                                 </div>
                                 <div id="pf_toc_widget-3" class="widget widget_pf_toc_widget" style="display: none;">
@@ -1065,107 +1066,8 @@
                                         <ul data-toc-min-number=""></ul>
                                     </div>
                                 </div>
-                                <div id="nav_menu-3" class="widget widget_nav_menu">
-                                    <div class="r-widget-title r-container r-sm">
-                                        <div class="r-content pd-ripple pd-ripple-trigger"><span class="widget-icon"></span>
-                                            <h4>导航</h4>
-                                        </div>
-                                    </div>
-                                    <div class="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95-container">
-                                        <ul id="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95" class="menu">
-                                            <li id="menu-item-583"
-                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-583">
-                                                <span class="link-wrapper r-container r-sm"><span class="r-content"><a
-                                                            href="https://www.ipangbo.cn/timeline">时间线</a></span></span>
-                                            </li>
-                                            <li id="menu-item-585"
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-585">
-                                                <span class="link-wrapper r-container r-sm"><span class="r-content"><a
-                                                            href="https://note.ipangbo.cn">Note站</a></span></span>
-                                            </li>
-                                            <li id="menu-item-586"
-                                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-586">
-                                                <span class="link-wrapper r-container r-sm"><span class="r-content"><a
-                                                            href="https://www.ipangbo.cn/category/site">网站</a></span></span>
-                                            </li>
-                                            <li id="menu-item-588"
-                                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-588">
-                                                <span class="link-wrapper r-container r-sm"><span class="r-content"><a
-                                                            href="https://www.ipangbo.cn/category/linux">Linux</a></span></span>
-                                            </li>
-                                            <li id="menu-item-589"
-                                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-589">
-                                                <span class="link-wrapper r-container r-sm"><span class="r-content"><a
-                                                            href="https://www.ipangbo.cn/category/build">开发
-                                                            Build</a></span></span>
-                                            </li>
-                                            <li id="menu-item-590"
-                                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-590">
-                                                <span class="link-wrapper r-container r-sm"><span class="r-content"><a
-                                                            href="https://www.ipangbo.cn/category/game">游戏</a></span></span>
-                                            </li>
-                                            <li id="menu-item-591"
-                                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-591">
-                                                <span class="link-wrapper r-container r-sm"><span class="r-content"><a
-                                                            href="https://www.ipangbo.cn/category/%e7%95%99%e5%ad%a6">留学</a></span></span>
-                                            </li>
-                                            <li id="menu-item-587"
-                                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-587">
-                                                <span class="link-wrapper r-container r-sm"><span class="r-content"><a
-                                                            href="https://www.ipangbo.cn/category/uncategorized">未分类</a></span></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div id="pf_music_box-widget-3" class="widget pf_music_box">
-                                    <div class="r-widget-title r-container r-sm">
-                                        <div class="r-content pd-ripple pd-ripple-trigger"><span class="widget-icon"></span>
-                                            <h4>Music Box</h4>
-                                        </div>
-                                    </div>
-                                    <div class="music_box_wrapper">
-                                        <div class="player">
-                                            <div class="album clearfix">
-                                                <div class="icon"><img class="disc"
-                                                        src="//www.ipangbo.cn/wp-content/themes/R//assets/frontend/theme_modules/static/disc.png"
-                                                        srcset="//www.ipangbo.cn/wp-content/themes/R//assets/frontend/theme_modules/static/disc@2x.png 2x,//www.ipangbo.cn/wp-content/themes/R//assets/frontend/theme_modules/static/disc@3x.png 3x
-                                        "><img class="discbar"
-                                                        src="//www.ipangbo.cn/wp-content/themes/R//assets/frontend/theme_modules/static/discbar.png"
-                                                        srcset="//www.ipangbo.cn/wp-content/themes/R//assets/frontend/theme_modules/static/discbar@2x.png 2x,//www.ipangbo.cn/wp-content/themes/R//assets/frontend/theme_modules/static/discbar@3x.png 3x
-                                        "></div>
-                                                <div class="info">
-                                                    <div class="title">未播放</div>
-                                                    <div class="time">00:00</div>
-                                                </div>
-                                            </div>
-                                            <div class="controls">
-                                                <div class="pf_progress">
-                                                    <div class="processing" style="width:0%">
-                                                        <div class="dragger"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="buttons"><button class="prev" disabled="true"
-                                                        autocomplete="off"><i
-                                                            class="pandastudio-icons-music-prev"></i></button><button
-                                                        class="play" autocomplete="off"><i
-                                                            class="pandastudio-icons-music-play"></i><i
-                                                            class="pandastudio-icons-music-pause"></i></button><button
-                                                        class="next" disabled="true" autocomplete="off"><i
-                                                            class="pandastudio-icons-music-next"></i></button></div>
-                                            </div>
-                                        </div>
-                                        <ul class="songs" data-songs="[&quot;&quot;]">
-                                            <li data-index="0">
-                                                <div class="song_name">明天会更好</div>
-                                                <div class="song_state">
-                                                    <div class="playing"></div>
-                                                    <div class="error"></div>
-                                                    <div class="loading"></div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <SidebarNavi></SidebarNavi>
+                                <MusicBox></MusicBox>
                             </div>
                             <div class="sidebar-panel" data-sidebar-key="custom2" style="display:none">
                                 <div id="pf_microblog-3" class="widget widget_pf_microblog">

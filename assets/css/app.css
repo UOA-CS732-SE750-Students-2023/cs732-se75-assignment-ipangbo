@@ -9475,11 +9475,11 @@ button.close {
 }
 
 .pandastudio-icons-music-pause:before {
-    content: "\ea24"
+    content: ""
 }
 
 .pandastudio-icons-music-play:before {
-    content: "\ea25"
+    content: ""
 }
 
 .pandastudio-icons-music-prev:before {
