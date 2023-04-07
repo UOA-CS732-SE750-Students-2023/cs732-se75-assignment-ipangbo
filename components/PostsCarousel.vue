@@ -115,6 +115,12 @@ const handleNextNavi = () => {
         currentIndex.value = 0;
     }
 }
+
+onMounted(() => {
+    setInterval(() => {
+        currentIndex.value = (currentIndex.value + 1) % props.slides.length;
+    }, 5000)
+})
 </script>
 
 <style scoped>
