@@ -9,10 +9,13 @@
         <div class="pf-modal-title">
             <div class="title-text"><el-icon color="#ff7800">
                     <Folder />
-                </el-icon>{{ props.title }}</div><a class="read-more pd-ripple pd-ripple-trigger"
-                href="https://www.ipangbo.cn/category/linux">More<el-icon>
+                </el-icon>{{ props.title }}</div>
+            <NuxtLink class="read-more pd-ripple pd-ripple-trigger" :to="`/category/${slug}`">
+                More
+                <el-icon>
                     <Right />
-                </el-icon></a>
+                </el-icon>
+            </NuxtLink>
         </div>
 
         <ListStyleList :posts="props.posts"></ListStyleList>
@@ -25,6 +28,7 @@ import { PostsListItem } from '~/types/PostTypes';
 const props = defineProps<{
     title: string | number;
     posts: PostsListItem[];
+    slug: string;
 }>()
 
 

@@ -76,16 +76,17 @@ export default defineNuxtConfig({
                     "name": "Linux",
                     "slug": "linux"
                 },
-                // {
-                //     "id": 1,
-                //     "name": "Uncategorized",
-                //     "slug": "uncategorized"
-                // },
+
                 {
                     "id": 23,
                     "name": "Website Technique",
                     "slug": "website-technique"
-                }
+                },
+                {
+                    "id": 1,
+                    "name": "Uncategorized",
+                    "slug": "uncategorized"
+                },
             ],
         },
     },

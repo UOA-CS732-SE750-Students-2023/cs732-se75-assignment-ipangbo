@@ -5,3 +5,4 @@ export const getCategoryNameById = async (category: number): Promise<{ name: str
 
     return postData.value as { name: string; slug: string };
 }
+
