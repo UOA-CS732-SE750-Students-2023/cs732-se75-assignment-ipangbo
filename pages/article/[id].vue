@@ -24,12 +24,12 @@
                 </el-icon>
                 <a href="https://www.ipangbo.cn/tag/apt" rel="tag">apt</a> · <a href="https://www.ipangbo.cn/tag/linux"
                     rel="tag">linux</a> · <a href="https://www.ipangbo.cn/tag/qemu" rel="tag">qemu</a> · <a
-                                                                                                                                                                                                                                                                                                                                                        href="https://www.ipangbo.cn/tag/ubuntu" rel="tag">ubuntu</a> · <a
-                                                                                                                                                                                                                                                                                                                                                        href="https://www.ipangbo.cn/tag/vmdk" rel="tag">vmdk</a> · <a
-                                                                                                                                                                                                                                                                                                                                                        href="https://www.ipangbo.cn/tag/%e4%ba%91%e6%9c%8d%e5%8a%a1%e5%99%a8" rel="tag">云服务器</a> · <a
-                                                                                                                                                                                                                                                                                                                                                        href="https://www.ipangbo.cn/tag/%e6%8a%a2%e6%95%91" rel="tag">抢救</a> · <a
-                                                                                                                                                                                                                                                                                                                                                        href="https://www.ipangbo.cn/tag/%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d" rel="tag">数据恢复</a></span><span
-                                                                                                                                                                                                                                                                                                                                                    class="time"> -->
+                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/ubuntu" rel="tag">ubuntu</a> · <a
+                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/vmdk" rel="tag">vmdk</a> · <a
+                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/%e4%ba%91%e6%9c%8d%e5%8a%a1%e5%99%a8" rel="tag">云服务器</a> · <a
+                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/%e6%8a%a2%e6%95%91" rel="tag">抢救</a> · <a
+                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d" rel="tag">数据恢复</a></span><span
+                                                                                                                                                                                                                                                                                                                                                                class="time"> -->
                 <el-icon>
                     <Calendar />
                 </el-icon>
@@ -84,39 +84,7 @@
                     </el-icon>Leave a comment</div>
             </div>
 
-            <div id="respond" class="comment-respond">
-                <form action="https://www.ipangbo.cn/wp-comments-post.php" method="post" id="commentform"
-                    class="comment-form">
-                    <p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="5"
-                            placeholder="You don't need to Login!"></textarea></p>
-                    <p class="comment-form-author comment-action" data-toggle="tooltip" title=""
-                        style="display: inline-block;"><label for="author"><el-icon>
-                                <User />
-                            </el-icon></label><input id="author" name="author" type="text" value="" size="30"
-                            placeholder="Nickname *" required autocomplete="off" disableautocomplete="">
-                    </p>
-                    <p class="comment-form-email comment-action" data-toggle="tooltip" title=""
-                        style="display: inline-block;"><label for="email"><el-icon>
-                                <Message />
-                            </el-icon></label><input id="email" name="email" type="text" value="" size="30"
-                            placeholder="E-mail *" required autocomplete="off" disableautocomplete="">
-                    </p>
-                    <p class="comment-form-url comment-action" data-toggle="tooltip" title=""
-                        style="display: inline-block;"><label for="url"><el-icon>
-                                <Compass />
-                            </el-icon></label><input id="url" name="url" type="text" value="" size="30"
-                            placeholder="Your Website" autocomplete="off" disableautocomplete=""></p>
-
-                    <p class="form-submit">
-                        <button name="submit" id="submit" class="submit" @click.prevent>
-                            <el-icon>
-                                <CircleCheckFilled />
-                            </el-icon>
-                            &nbsp;&nbsp;Send&nbsp;&nbsp;
-                        </button>
-                    </p>
-            </form>
-        </div>
+        <LeaveComment :id="Number(route.params.id)"></LeaveComment>
         <ol class="comment-list">
         </ol>
     </div>
@@ -162,11 +130,11 @@
                         </p><input type="hidden" id="_wp_unfiltered_html_comment_disabled" name="_wp_unfiltered_html_comment"
                             value="7ffa9dcd93">
 
-                                                                                                                                                                                                                                                            </form>
-                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                <ol class="comment-list">
-                                                                                                                                                                                                                                                </ol>
-                                                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                                                                        </form>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                            <ol class="comment-list">
+                                                                                                                                                                                                                                                            </ol>
+                                                                                                                                                                                                                                                        </div> -->
     </div>
 </template>
 
