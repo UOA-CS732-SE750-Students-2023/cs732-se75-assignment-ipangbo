@@ -13,19 +13,20 @@
         <div class="r-content">
             <div class="top-slider-nav">
                 <div class="pf-slider">
-                    <PostsCarousel :slides="slides as any"></PostsCarousel>
+                    <PostsCarousel :slides="slides as any" v-if="routesHaveCarousel.includes(route.path)"></PostsCarousel>
+                    <ArticleFeaturedImage v-else></ArticleFeaturedImage>
                 </div>
                 <nav>
-                    <li class="current-menu-item">
-                        <a href="/">Home</a>
+                    <li :class="(route.path === '/') ? 'current-menu-item' : ''">
+                        <NuxtLink to="/">Home</NuxtLink>
                     </li>
-                    <li>
-                        <a href="/">Website Map</a>
+                    <li :class="(route.path === '/timeline') ? 'current-menu-item' : ''">
+                        <NuxtLink to="/timeline">Website Map</NuxtLink>
                     </li>
-                    <li>
+                    <li :class="(route.path === '/page/about') ? 'current-menu-item' : ''">
                         <a href="/">About</a>
                     </li>
-                    <li>
+                    <li :class="(route.path === '/page/private') ? 'current-menu-item' : ''">
                         <a href="/">Private Policy</a>
                     </li>
                 </nav>
@@ -74,8 +75,14 @@ import { Slide } from '~/types/PostTypes';
 const route = useRoute();
 const postsStore = usePostsStore();
 
+const routesHaveCarousel = ref([
+    '/',
+    '/timeline',
+]);
+
+
 const slides = ref<Slide[]>([]);
-if (route.path === "/") {
+if (routesHaveCarousel.value.includes(route.path)) {
     await postsStore.getHomePagePinnedSlides();
     const homePagePinnedSlides = postsStore.pinnedPages;
 

@@ -8,7 +8,7 @@
     <div id="card-flip-slider" interval-time="4000">
         <div class="showBox ">
             <div v-for="(item, index) in props.slides" :class="getClassForIndex(index)" :key="index">
-                <a class="page" :href="item.link">
+                <NuxtLink class="page" :to="`/article/${item.id}`">
                     <div class="badge" :class="colorClassForSlideBadge(item.badge)">{{ textForSlideBadge(item.badge) }}
                     </div>
                     <h2 class="title">{{ item.title }}</h2>
@@ -19,7 +19,7 @@
                         {{ item.category }}
                     </div>
                     <img class="background blur" :src="item.featuredmedia">
-                </a>
+                </NuxtLink>
             </div>
 
         </div>
