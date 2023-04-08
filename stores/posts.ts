@@ -7,7 +7,8 @@ import {
     listNewestPosts,
     listPinnedPosts,
     listPostsInCategories,
-    getPostsCountRaw
+    getPostsCountRaw,
+    listSearchResult
 } from "@/utils/http/posts";
 import { Category } from "~/types/CategoryTypes";
 
@@ -110,6 +111,23 @@ export const usePostsStore = defineStore("posts", () => {
         postsCount.value = await getPostsCountRaw();
     }
 
+    const getSearchResult = async (keyword: string) => {
+        let res: TimeLineCardDetails[] = [];
+        const resp = await listSearchResult(keyword);
+        resp.forEach((orig) => {
+            res.push({
+                id: orig.id,
+                link: orig.link,
+                title: orig.title.rendered,
+                slug: orig.slug,
+                excerpt: orig.excerpt.rendered,
+                featuredmedia: orig["_embedded"]["wp:featuredmedia"][0]["source_url"],
+                date: orig.date.split("T")[0],
+            })
+        })
+        currentTimeLineCards.value = res;
+    }
+
     return {
         newestPages,
         pinnedPages,
@@ -123,6 +141,7 @@ export const usePostsStore = defineStore("posts", () => {
         getPostDetailsById,
         getTimeLineCardDetailsByPage,
         getPostsCount,
+        getSearchResult,
     }
 
 })

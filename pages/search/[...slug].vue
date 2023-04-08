@@ -1,8 +1,8 @@
 <!--
- * The all posts page called timeline
+ * The search page
  * @author: Bo Pang
- * @since: 2023-04-08
- * timeline.vue
+ * @since: 2023-04-09
+ * [...slug].vue
 -->
 <template>
     <Head>
@@ -36,51 +36,55 @@
                         class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-590"><a
                             href="https://www.ipangbo.cn/category/game">游戏</a></li>
                     <li id="menu-item-591"
-                                                                                                                                                                                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-591"><a
-                                                                                                                                                                                                href="https://www.ipangbo.cn/category/%e7%95%99%e5%ad%a6">留学</a></li>
-                                                                                                                                                                                        <li id="menu-item-587"
-                                                                                                                                                                                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-587"><a
-                                                                                                                                                                                                href="https://www.ipangbo.cn/category/uncategorized">未分类</a></li>
-                                                                                                                                                                                    </ul> -->
+                                                                                                                                                                                                                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-591"><a
+                                                                                                                                                                                                                                        href="https://www.ipangbo.cn/category/%e7%95%99%e5%ad%a6">留学</a></li>
+                                                                                                                                                                                                                                <li id="menu-item-587"
+                                                                                                                                                                                                                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-587"><a
+                                                                                                                                                                                                                                        href="https://www.ipangbo.cn/category/uncategorized">未分类</a></li>
+                                                                                                                                                                                                                            </ul> -->
             </div>
         </div>
 
         <div class="main-container archive-list">
             <div class="row post-card-row style-blog">
                 <TimeLineArticleCard v-for="(card, index) in currentPageCards" :card="card" :key="index">
-                </TimeLineArticleCard>
+            </TimeLineArticleCard>
+            <div>{{ status }}</div>
 
-            </div>
         </div>
-        <div class="pagination-wrapper clearfix">
+    </div>
+    <!-- <div class="pagination-wrapper clearfix">
             <ul class="pf-pagination">
                 <li class="pagenumber" v-for="page in pageAmount" :key="page" :class="currentPage === page ? 'active' : ''">
                     <a @click="handleTogglePage(page)">
-                        <span class="active">{{ page }}</span>
-                    </a>
-                </li>
+                                                                    <span class="active">{{ page }}</span>
+                                                                </a>
+                                                            </li>
 
-            </ul>
-        </div>
+                                                        </ul>
+                                                    </div> -->
     </div>
 </template>
 
 <script setup lang="ts">
+import { useCurrentArticleStore } from '~/stores/currentArticle';
 import { usePostsStore } from '~/stores/posts';
+const route = useRoute();
+const keyword = route.params.slug[0];
+const status = ref('Searching...');
+
+const currentArticleStore = useCurrentArticleStore();
+currentArticleStore.title = `Search: ${keyword}`
+currentArticleStore.imgAddr = '/search_bg.png';
 
 const postsStore = usePostsStore();
-await postsStore.getTimeLineCardDetailsByPage(1);
-const currentPageCards = ref(postsStore.currentTimeLineCards);
-await postsStore.getPostsCount();
-const pageAmount = Math.floor(postsStore.postsCount / 12) + 1;
-const currentPage = ref(1);
-
-const handleTogglePage = async (page: number) => {
-    await postsStore.getTimeLineCardDetailsByPage(page);
-    currentPageCards.value = postsStore.currentTimeLineCards;
-    currentPage.value = page;
+await postsStore.getSearchResult(keyword);
+const currentPageCards = postsStore.currentTimeLineCards;
+if (currentPageCards.length === 0) {
+    status.value = 'No such result';
+} else {
+    status.value = '';
 }
-
 </script>
 
 <style scoped>
