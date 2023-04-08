@@ -58,7 +58,35 @@ export default defineNuxtConfig({
                     name: 'We Are the World',
                     url: 'https://tc.qn.ipangbo.cn/media/we_are_the_world.mp3',
                 },
-            ]
+            ],
+            newestAmountInCarousel: 5,
+            categoriesOnIndexPage: [
+                {
+                    "id": 9,
+                    "name": "Development",
+                    "slug": "development"
+                },
+                {
+                    "id": 29,
+                    "name": "Life",
+                    "slug": "life"
+                },
+                {
+                    "id": 3,
+                    "name": "Linux",
+                    "slug": "linux"
+                },
+                // {
+                //     "id": 1,
+                //     "name": "Uncategorized",
+                //     "slug": "uncategorized"
+                // },
+                {
+                    "id": 23,
+                    "name": "Website Technique",
+                    "slug": "website-technique"
+                }
+            ],
         },
     },
 

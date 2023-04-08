@@ -5,6 +5,16 @@ export interface Slide {
     featuredmedia: string;
     category: string[];
     badge: "new" | "pinned";
+    date: string;
+}
+
+export interface PostsListItem {
+    id: number;
+    link: string;
+    title: string;
+    featuredmedia: string;
+    category?: string[];
+    date: string;
 }
 
 export interface NaviItem {
@@ -18,4 +28,17 @@ export interface MusicBoxItem {
     url: string;
     status?: "normal" | "is-loading" | "is-playing";
     currentTime?: number;
+}
+
+export interface PostsByCategories {
+    [key: string]: PostWithCategories[];
+}
+
+export interface PostWithCategories {
+    id: number;
+    link: string;
+    title: string;
+    featuredmedia: string;
+    categories: number[];
+    date: string;
 }
