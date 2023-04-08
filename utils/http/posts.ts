@@ -65,3 +65,12 @@ export const getPostsCountRaw = async (): Promise<number> => {
 
     return Number(postData.value);
 }
+
+export const listSearchResult = async (keyword: string): Promise<any[]> => {
+    const { data: postData } = await useAPIFetch(`/posts?search=${keyword}&per_page=100&page=1&orderby=date&order=desc&_fields=id,link,slug,excerpt,date,title,_links.wp:featuredmedia&_embed`, {
+        method: 'GET',
+    });
+
+    if (Array.isArray(postData.value)) return postData.value;
+    return [];
+}
