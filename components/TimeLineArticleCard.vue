@@ -24,12 +24,12 @@
                 </span>
                 <!-- <span class="metas">
                         <span class="m-reads">
-                                                                                <i class="pandastudio-icons-eye"></i>34</span>
-                                                                            <span class="m-likes">
-                                                                                <i class="pandastudio-icons-heart-o"></i>2</span>
-                                                                            <span class="m-comments">
-                                                                                <i class="pandastudio-icons-comments-o"></i>0</span>
-                                                                        </span> -->
+                                                                                    <i class="pandastudio-icons-eye"></i>34</span>
+                                                                                <span class="m-likes">
+                                                                                    <i class="pandastudio-icons-heart-o"></i>2</span>
+                                                                                <span class="m-comments">
+                                                                                    <i class="pandastudio-icons-comments-o"></i>0</span>
+                                                                            </span> -->
                 </span>
             </span>
             <span class="blog-thumbnail">
@@ -46,9 +46,6 @@ import { TimeLineCardDetails } from '~/types/PostTypes';
 const props = defineProps<{
     card: TimeLineCardDetails;
 }>();
-
-console.log(props.card);
-
 
 </script>
 

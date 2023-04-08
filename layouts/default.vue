@@ -24,10 +24,10 @@
                         <NuxtLink to="/timeline">Website Map</NuxtLink>
                     </li>
                     <li :class="(route.path === '/page/about') ? 'current-menu-item' : ''">
-                        <a href="/">About</a>
+                        <NuxtLink to="/page/about">About</NuxtLink>
                     </li>
-                    <li :class="(route.path === '/page/private') ? 'current-menu-item' : ''">
-                        <a href="/">Private Policy</a>
+                    <li :class="(route.path === '/page/privacy-policy') ? 'current-menu-item' : ''">
+                        <NuxtLink to="/page/privacy-policy">Privacy Policy</NuxtLink>
                     </li>
                 </nav>
 
@@ -80,7 +80,6 @@ const routesHaveCarousel = ref([
     '/timeline',
 ]);
 
-
 const slides = ref<Slide[]>([]);
 if (routesHaveCarousel.value.includes(route.path)) {
     await postsStore.getHomePagePinnedSlides();
@@ -99,6 +98,32 @@ if (routesHaveCarousel.value.includes(route.path)) {
 
     slides.value = homePagePinnedSlides.concat(homePageNewestSlides);
 }
+watch(() => route.path, async () => {
+    if (routesHaveCarousel.value.includes(route.path)) {
+        await postsStore.getHomePagePinnedSlides();
+        const homePagePinnedSlides = postsStore.pinnedPages;
+
+        await postsStore.getHomePageNewestSlides();
+        const newestPosts = postsStore.newestPages;
+        const newestAmountInCarousel = useRuntimeConfig().public.newestAmountInCarousel;
+        let homePageNewestSlides;
+        if (newestAmountInCarousel < 6) {
+            homePageNewestSlides = newestPosts.slice(0, newestAmountInCarousel);
+        } else {
+            homePageNewestSlides = newestPosts;
+        }
+
+
+        slides.value = homePagePinnedSlides.concat(homePageNewestSlides);
+    }
+})
+
 
 
 </script>
+
+<style scoped>
+/* .top-slider-nav nav li.current-menu-item {
+    transition: .3s ease .2s;
+} */
+</style>

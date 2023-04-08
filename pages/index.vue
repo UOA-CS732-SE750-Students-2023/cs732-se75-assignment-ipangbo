@@ -15,8 +15,7 @@
                 <div class="title-text">
                     <el-icon color="#ff7800">
                         <Star />
-                    </el-icon>
-                    Newest
+                    </el-icon>Newest
                 </div>
                 <NuxtLink to="/timeline" class="read-more pd-ripple pd-ripple-trigger">
                     More

@@ -15,7 +15,14 @@
             <a data-sidebar-key="custom2" :class="(currentTab === 2) ? 'active' : ''" @click="toCurrentTab(2)">
                 <el-icon>
                     <Promotion />
-                </el-icon></a>
+                </el-icon>
+            </a>
+            <a data-sidebar-key="custom2" :class="(currentTab === 3) ? 'active' : ''" @click="toCurrentTab(3)"
+                v-if="showContentTab">
+                <el-icon>
+                    <Management />
+                </el-icon>
+            </a>
         </div>
         <div class="sidebar-content pf_scroller pf_scroller_is_mac">
             <div class="sidebar-panel" :class="(currentTab === 1) ? 'active' : ''"
@@ -26,16 +33,47 @@
                 :style="(currentTab === 2) ? 'display: block;' : 'display: none;'">
                 <LiteBlogSidebar></LiteBlogSidebar>
             </div>
+            <div class="sidebar-panel" :class="(currentTab === 3) ? 'active' : ''"
+                :style="(currentTab === 3) ? 'display: block;' : 'display: none;'">
+                <ContentsSidebar v-if="imgAddr && docTree"></ContentsSidebar>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useCurrentArticleStore } from '~/stores/currentArticle';
+
 const currentTab = ref(1);
+const showContentTab = ref(false);
 
 const toCurrentTab = (tab: number) => {
     currentTab.value = tab;
 }
+
+const route = useRoute();
+const showContentTabRoute = [
+    '/article',
+    '/page'
+];
+
+watch(() => route.path, () => {
+    showContentTabRoute.forEach((path) => {
+        if (route.path.startsWith(path)) {
+            showContentTab.value = true;
+            toCurrentTab(3);
+        } else {
+            toCurrentTab(1);
+            showContentTab.value = false;
+        }
+    });
+})
+
+
+const currentArticleStore = useCurrentArticleStore();
+const { imgAddr, docTree } = storeToRefs(currentArticleStore);
+
 
 // todo: The transition effect must delay 0.25s then make label active and set display none
 </script>
