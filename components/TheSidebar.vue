@@ -17,7 +17,7 @@
                     <Promotion />
                 </el-icon>
             </a>
-            <a data-sidebar-key="custom2" :class="(currentTab === 3) ? 'active' : ''" @click="toCurrentTab(3)"
+            <a data-sidebar-key="custom3" :class="(currentTab === 3) ? 'active' : ''" @click="toCurrentTab(3)"
                 v-if="showContentTab">
                 <el-icon>
                     <Management />
@@ -55,17 +55,25 @@ const toCurrentTab = (tab: number) => {
 const route = useRoute();
 const showContentTabRoute = [
     '/article',
-    '/page'
+    '/page',
 ];
 
+toCurrentTab(1);
+showContentTab.value = false;
+showContentTabRoute.forEach((path) => {
+    if (route.path.startsWith(path)) {
+        showContentTab.value = true;
+        toCurrentTab(3);
+    }
+});
+
 watch(() => route.path, () => {
+    toCurrentTab(1);
+    showContentTab.value = false;
     showContentTabRoute.forEach((path) => {
         if (route.path.startsWith(path)) {
             showContentTab.value = true;
             toCurrentTab(3);
-        } else {
-            toCurrentTab(1);
-            showContentTab.value = false;
         }
     });
 })
