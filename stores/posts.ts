@@ -1,12 +1,23 @@
 import { defineStore } from "pinia";
-import { PostsByCategories, Slide, PostWithCategories } from "~/types/PostTypes";
-import { listAllPostsWithCategories, listNewestPosts, listPinnedPosts, listPostsInCategories } from "@/utils/http/posts";
+import { PostsByCategories, Slide, PostWithCategories, PostDetails, TimeLineCardDetails } from "~/types/PostTypes";
+import {
+    getPostDetailsRawById,
+    getTimeLineContentByPage,
+    listAllPostsWithCategories,
+    listNewestPosts,
+    listPinnedPosts,
+    listPostsInCategories,
+    getPostsCountRaw
+} from "@/utils/http/posts";
 import { Category } from "~/types/CategoryTypes";
 
 export const usePostsStore = defineStore("posts", () => {
     const newestPages = ref<Slide[]>([]);
     const pinnedPages = ref<Slide[]>([]);
     const postsByCategories = ref<PostsByCategories>({});
+    const currentArticle = ref<PostDetails>();
+    const currentTimeLineCards = ref<TimeLineCardDetails[]>([]);
+    const postsCount = ref<number>(0);
 
     const getHomePageNewestSlides = async () => {
         const respNew: any[] = await listNewestPosts();
@@ -74,13 +85,44 @@ export const usePostsStore = defineStore("posts", () => {
         postsByCategories.value = res;
     }
 
+    const getPostDetailsById = async (id: string) => {
+        currentArticle.value = await getPostDetailsRawById(id);
+    }
+
+    const getTimeLineCardDetailsByPage = async (page: number) => {
+        let res: TimeLineCardDetails[] = [];
+        const resp = await getTimeLineContentByPage(page);
+        resp.forEach((orig) => {
+            res.push({
+                id: orig.id,
+                link: orig.link,
+                title: orig.title.rendered,
+                slug: orig.slug,
+                excerpt: orig.excerpt.rendered,
+                featuredmedia: orig["_embedded"]["wp:featuredmedia"][0]["source_url"],
+                date: orig.date.split("T")[0],
+            })
+        })
+        currentTimeLineCards.value = res;
+    }
+
+    const getPostsCount = async () => {
+        postsCount.value = await getPostsCountRaw();
+    }
+
     return {
         newestPages,
         pinnedPages,
         postsByCategories,
+        currentArticle,
+        currentTimeLineCards,
+        postsCount,
         getHomePageNewestSlides,
         getHomePagePinnedSlides,
         getPostsByCategories,
+        getPostDetailsById,
+        getTimeLineCardDetailsByPage,
+        getPostsCount,
     }
 
 })

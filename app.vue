@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import "~/assets/css/wordpress.css";
 import "~/assets/css/base.css";
 import "~/assets/css/main.css";
 import "~/assets/css/app.css"

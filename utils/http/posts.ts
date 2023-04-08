@@ -1,4 +1,4 @@
-import { PostWithCategories, Slide } from "~/types/PostTypes";
+import { PostDetails } from "~/types/PostTypes";
 
 export const listNewestPosts = async (): Promise<any[]> => {
     // Since the carousel (custom) and the Newest part (6) will display the newest posts simutaneously,
@@ -37,4 +37,31 @@ export const listAllPostsWithCategories = async (): Promise<any[]> => {
 
     if (Array.isArray(postData.value)) return postData.value;
     return [];
+}
+
+export const getPostDetailsRawById = async (id: string): Promise<PostDetails> => {
+    const { data: postData } = await useAPIFetch(`/posts/${id}?_embed`, {
+        method: 'GET',
+    });
+
+    return postData.value as PostDetails;
+}
+
+
+export const getTimeLineContentByPage = async (page: number): Promise<any[]> => {
+    const { data: postData } = await useAPIFetch(`/posts?per_page=12&page=${page}&orderby=date&order=desc&_fields=id,link,slug,excerpt,date,title,_links.wp:featuredmedia&_embed`, {
+        method: 'GET',
+    });
+
+    if (Array.isArray(postData.value)) return postData.value;
+    return [];
+}
+
+
+export const getPostsCountRaw = async (): Promise<number> => {
+    const { data: postData } = await useFetch(`${useRuntimeConfig().public.baseURL.replace('wp/v2', 'custom/v1')}/total-posts`, {
+        method: 'GET',
+    });
+
+    return Number(postData.value);
 }

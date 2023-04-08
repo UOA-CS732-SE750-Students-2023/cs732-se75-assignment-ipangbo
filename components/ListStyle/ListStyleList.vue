@@ -7,22 +7,23 @@
 <template>
     <div class="row post-card-row style-list">
         <div class="post-list-col col-xxs-12 col-xs-12 col-sm-6 col-lg-4" v-for="item in props.posts">
-        <a href="https://www.ipangbo.cn/linux/564.html" class="pf_list pd-ripple pd-ripple-trigger">
+        <NuxtLink :to="`/article/${item.id}`" class="pf_list pd-ripple pd-ripple-trigger">
             <span class="post-thumbnail" :style="`background-image:url(${item.featuredmedia})`"></span>
             <span class="metas">
                     <h4>{{ item.title }}</h4>
                     <span class="infos">
                         <!-- <span class="m-reads">
-                                                <i class="pandastudio-icons-eye"></i>28</span>
-                                            <span class="m-likes">
-                                                <i class="pandastudio-icons-heart-o"></i>2</span> -->
+                                                                <i class="pandastudio-icons-eye"></i>28</span>
+                                                            <span class="m-likes">
+                                                                <i class="pandastudio-icons-heart-o"></i>2</span> -->
                         <span class="m-comments">
                             <el-icon>
                                 <Calendar />
-                            </el-icon>{{ item.date }}</span>
+                            </el-icon>{{ item.date }}
+                        </span>
                     </span>
                 </span>
-            </a>
+            </NuxtLink>
         </div>
     </div>
 </template>
