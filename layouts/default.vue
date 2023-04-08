@@ -24,10 +24,10 @@
                         <NuxtLink to="/timeline">Website Map</NuxtLink>
                     </li>
                     <li :class="(route.path === '/page/about') ? 'current-menu-item' : ''">
-                        <a href="/">About</a>
+                        <NuxtLink to="/page/about">About</NuxtLink>
                     </li>
-                    <li :class="(route.path === '/page/private') ? 'current-menu-item' : ''">
-                        <a href="/">Private Policy</a>
+                    <li :class="(route.path === '/page/privacy-policy') ? 'current-menu-item' : ''">
+                        <NuxtLink to="/page/privacy-policy">Privacy Policy</NuxtLink>
                     </li>
                 </nav>
 
@@ -102,3 +102,9 @@ if (routesHaveCarousel.value.includes(route.path)) {
 
 
 </script>
+
+<style scoped>
+/* .top-slider-nav nav li.current-menu-item {
+    transition: .3s ease .2s;
+} */
+</style>
