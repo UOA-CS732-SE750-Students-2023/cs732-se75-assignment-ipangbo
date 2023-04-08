@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div id="wrapper">
     <NuxtLayout :name="layout">
       <NuxtPage></NuxtPage>
     </NuxtLayout>
@@ -7,8 +7,16 @@
 </template>
 
 <script setup lang="ts">
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import "~/assets/css/base.css";
 import "~/assets/css/main.css";
+import "~/assets/css/app.css"
+
+const nuxtApp = useNuxtApp()
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  nuxtApp.vueApp.component(key, component)
+}
+
 
 const layout = "default"
 const blogTitle = useRuntimeConfig().public.blogTitle;
@@ -20,10 +28,4 @@ useHead({
 })
 </script>
 
-<style scoped>
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-</style>
+<style scoped></style>
