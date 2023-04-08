@@ -6,7 +6,7 @@
 -->
 <template>
     <Head>
-        <Title>Timeline</Title>
+        <Title>Search: {{ keyword }}</Title>
     </Head>
 
 <div class="main-column">
@@ -36,12 +36,12 @@
                         class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-590"><a
                             href="https://www.ipangbo.cn/category/game">游戏</a></li>
                     <li id="menu-item-591"
-                                                                                                                                                                                                                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-591"><a
-                                                                                                                                                                                                                                        href="https://www.ipangbo.cn/category/%e7%95%99%e5%ad%a6">留学</a></li>
-                                                                                                                                                                                                                                <li id="menu-item-587"
-                                                                                                                                                                                                                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-587"><a
-                                                                                                                                                                                                                                        href="https://www.ipangbo.cn/category/uncategorized">未分类</a></li>
-                                                                                                                                                                                                                            </ul> -->
+                                                                                                                                                                                                                                        class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-591"><a
+                                                                                                                                                                                                                                            href="https://www.ipangbo.cn/category/%e7%95%99%e5%ad%a6">留学</a></li>
+                                                                                                                                                                                                                                    <li id="menu-item-587"
+                                                                                                                                                                                                                                        class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-587"><a
+                                                                                                                                                                                                                                            href="https://www.ipangbo.cn/category/uncategorized">未分类</a></li>
+                                                                                                                                                                                                                                </ul> -->
             </div>
         </div>
 
@@ -57,12 +57,12 @@
             <ul class="pf-pagination">
                 <li class="pagenumber" v-for="page in pageAmount" :key="page" :class="currentPage === page ? 'active' : ''">
                     <a @click="handleTogglePage(page)">
-                                                                    <span class="active">{{ page }}</span>
-                                                                </a>
-                                                            </li>
+                                                                        <span class="active">{{ page }}</span>
+                                                                    </a>
+                                                                </li>
 
-                                                        </ul>
-                                                    </div> -->
+                                                            </ul>
+                                                        </div> -->
     </div>
 </template>
 

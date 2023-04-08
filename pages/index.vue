@@ -28,7 +28,8 @@
         </div>
 
 
-        <PostsByCategoryOnIndex v-for="(value, key) in postsByCategories" :title="key" :key="key" :posts="value">
+        <PostsByCategoryOnIndex v-for="(value, key) in postsByCategories" :title="key" :key="key" :posts="value"
+            :slug="getSlugByName(key as string)">
         </PostsByCategoryOnIndex>
 
 
@@ -37,6 +38,7 @@
 
 <script setup lang="ts">
 import { usePostsStore } from '~/stores/posts';
+import { Category } from '~/types/CategoryTypes';
 
 const postsStore = usePostsStore();
 let newestPosts = postsStore.newestPages;
@@ -48,6 +50,11 @@ if (newestPosts.length > 6) {
 
 await postsStore.getPostsByCategories();
 const postsByCategories = postsStore.postsByCategories;
+
+const getSlugByName = (name: string): string => {
+    const tmp = useRuntimeConfig().public.categoriesOnIndexPage.find((item: any) => item.name === name) as Category;
+    if (tmp) return tmp.slug; else return '';
+}
 </script>
 
 <style scoped>
