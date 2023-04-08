@@ -14,19 +14,19 @@
                 </el-icon>
                 <a href="https://www.ipangbo.cn/tag/apt" rel="tag">apt</a> · <a href="https://www.ipangbo.cn/tag/linux"
                     rel="tag">linux</a> · <a href="https://www.ipangbo.cn/tag/qemu" rel="tag">qemu</a> · <a
-                                                                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/ubuntu" rel="tag">ubuntu</a> · <a
-                                                                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/vmdk" rel="tag">vmdk</a> · <a
-                                                                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/%e4%ba%91%e6%9c%8d%e5%8a%a1%e5%99%a8" rel="tag">云服务器</a> · <a
-                                                                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/%e6%8a%a2%e6%95%91" rel="tag">抢救</a> · <a
-                                                                                                                                                                                                                                                                                                                                                                                                                    href="https://www.ipangbo.cn/tag/%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d" rel="tag">数据恢复</a></span><span
-                                                                                                                                                                                                                                                                                                                                                                                                                class="time"> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            href="https://www.ipangbo.cn/tag/ubuntu" rel="tag">ubuntu</a> · <a
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            href="https://www.ipangbo.cn/tag/vmdk" rel="tag">vmdk</a> · <a
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            href="https://www.ipangbo.cn/tag/%e4%ba%91%e6%9c%8d%e5%8a%a1%e5%99%a8" rel="tag">云服务器</a> · <a
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            href="https://www.ipangbo.cn/tag/%e6%8a%a2%e6%95%91" rel="tag">抢救</a> · <a
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            href="https://www.ipangbo.cn/tag/%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d" rel="tag">数据恢复</a></span><span
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="time"> -->
                 <el-icon>
                     <Calendar />
                 </el-icon>
                 <span class="date">Last Updated: {{ currentPage?.modified.split('T')[0] }}</span>
             </span>
         </div>
-        <article class="article-container post-content" v-html="currentPage?.content.rendered">
+        <article class="article-container post-content" v-html="currentPage?.content.rendered" ref="articleDOM">
 
         </article>
         <div class="article-container post-shares">
@@ -152,11 +152,11 @@
                         </p><input type="hidden" id="_wp_unfiltered_html_comment_disabled" name="_wp_unfiltered_html_comment"
                             value="7ffa9dcd93">
 
-                                                                                                                                                                                                                                                                                                                        </form>
-                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                            <ol class="comment-list">
-                                                                                                                                                                                                                                                                                                            </ol>
-                                                                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                                                                                </form>
+                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                    <ol class="comment-list">
+                                                                                                                                                                                                                                                                                                                                                    </ol>
+                                                                                                                                                                                                                                                                                                                                                </div> -->
     </div>
 </template>
 
@@ -166,16 +166,24 @@ import { usePagesStore } from '~/stores/pages'
 const route1 = useRoute();
 const slug = route1.params.slug[0];
 const pagesStore = usePagesStore();
+const articleDOM = ref();
 
 await pagesStore.getPageDetailsBySlug(slug);
 
 const currentPage = pagesStore.currentPage;
 
-const headImageStore = useCurrentArticleStore();
-if (currentPage) {
-    headImageStore.title = currentPage.title.rendered;
-    headImageStore.imgAddr = currentPage._embedded['wp:featuredmedia'][0]['source_url'];
-}
+
+
+onMounted(() => {
+    const docTree = generateCatelog(articleDOM.value);
+
+    const currentArticleStore = useCurrentArticleStore();
+    if (currentPage) {
+        currentArticleStore.title = currentPage.title.rendered;
+        currentArticleStore.imgAddr = currentPage._embedded['wp:featuredmedia'][0]['source_url'];
+        currentArticleStore.docTree = docTree;
+    }
+})
 
 </script>
 

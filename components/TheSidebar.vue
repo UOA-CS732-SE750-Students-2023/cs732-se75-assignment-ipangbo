@@ -35,13 +35,16 @@
             </div>
             <div class="sidebar-panel" :class="(currentTab === 3) ? 'active' : ''"
                 :style="(currentTab === 3) ? 'display: block;' : 'display: none;'">
-                <LiteBlogSidebar></LiteBlogSidebar>
+                <ContentsSidebar v-if="imgAddr && docTree"></ContentsSidebar>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useCurrentArticleStore } from '~/stores/currentArticle';
+
 const currentTab = ref(1);
 const showContentTab = ref(false);
 
@@ -53,10 +56,24 @@ const route = useRoute();
 const showContentTabRoute = [
     '/article',
     '/page'
-]
-showContentTabRoute.forEach((path) => {
-    if (route.path.startsWith(path)) showContentTab.value = true;
+];
+
+watch(() => route.path, () => {
+    showContentTabRoute.forEach((path) => {
+        if (route.path.startsWith(path)) {
+            showContentTab.value = true;
+            toCurrentTab(3);
+        } else {
+            toCurrentTab(1);
+            showContentTab.value = false;
+        }
+    });
 })
+
+
+const currentArticleStore = useCurrentArticleStore();
+const { imgAddr, docTree } = storeToRefs(currentArticleStore);
+
 
 // todo: The transition effect must delay 0.25s then make label active and set display none
 </script>
