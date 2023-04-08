@@ -80,7 +80,6 @@ const routesHaveCarousel = ref([
     '/timeline',
 ]);
 
-
 const slides = ref<Slide[]>([]);
 if (routesHaveCarousel.value.includes(route.path)) {
     await postsStore.getHomePagePinnedSlides();
@@ -99,6 +98,26 @@ if (routesHaveCarousel.value.includes(route.path)) {
 
     slides.value = homePagePinnedSlides.concat(homePageNewestSlides);
 }
+watch(() => route.path, async () => {
+    if (routesHaveCarousel.value.includes(route.path)) {
+        await postsStore.getHomePagePinnedSlides();
+        const homePagePinnedSlides = postsStore.pinnedPages;
+
+        await postsStore.getHomePageNewestSlides();
+        const newestPosts = postsStore.newestPages;
+        const newestAmountInCarousel = useRuntimeConfig().public.newestAmountInCarousel;
+        let homePageNewestSlides;
+        if (newestAmountInCarousel < 6) {
+            homePageNewestSlides = newestPosts.slice(0, newestAmountInCarousel);
+        } else {
+            homePageNewestSlides = newestPosts;
+        }
+
+
+        slides.value = homePagePinnedSlides.concat(homePageNewestSlides);
+    }
+})
+
 
 
 </script>
