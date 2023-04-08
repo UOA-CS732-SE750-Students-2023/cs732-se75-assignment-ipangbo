@@ -41,6 +41,7 @@ import { usePostsStore } from '~/stores/posts';
 import { Category } from '~/types/CategoryTypes';
 
 const postsStore = usePostsStore();
+await postsStore.getHomePageNewestSlides();
 let newestPosts = postsStore.newestPages;
 
 

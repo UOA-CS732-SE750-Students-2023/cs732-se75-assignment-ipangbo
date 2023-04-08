@@ -9,8 +9,7 @@
         <form id="commentform" class="comment-form">
             <p class="comment-form-comment">
                 <textarea id="comment" name="comment" cols="45" rows="5" placeholder="You don't need to Login!"
-                    v-model="content">
-                                            </textarea>
+                    v-model="content"></textarea>
             </p>
             <p class="comment-form-author comment-action" data-toggle="tooltip" title="" style="display: inline-block;">
                 <label for="author">
