@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-    <div id="pf_toc_widget-5" class="widget widget_pf_toc_widget">
+    <div id="pf_toc_widget-5" class="widget widget_pf_toc_widget" v-if="docTree.length > 0">
         <div class="toc">
             <ul data-toc-min-number="">
                 <li :data-toc-type="node.nodeName" v-for="node in docTree" :key="node.id" :id="node.id">
