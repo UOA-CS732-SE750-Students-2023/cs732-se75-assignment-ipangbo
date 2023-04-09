@@ -53,7 +53,7 @@
         <div class="float-tools-container">
             <div class="float-tools">
                 <div class="float-tools-button">
-                    <button class="scroll2top" @click="ElMessage({ message: '回顶部', duration: 3000 })">
+                    <button class="scroll2top" @click="scrollToTop">
                         <el-icon color="#fff" :size="20">
                             <Upload />
                         </el-icon>
@@ -117,6 +117,13 @@ watch(() => route.path, async () => {
         slides.value = homePagePinnedSlides.concat(homePageNewestSlides);
     }
 })
+
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+}
 
 
 

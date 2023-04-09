@@ -16,8 +16,8 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             blogTitle: 'R theme by Nuxt',
-            baseURL: 'http://localhost:38099/wp-json/wp/v2',
-            // baseURL: 'https://www.ipangbo.cn/wp-json/wp/v2',
+            // baseURL: 'http://localhost:38099/wp-json/wp/v2',
+            baseURL: 'https://black.ipangbo.cn/wp-json/wp/v2',
             authorName: 'Bo Pang',
             authorSlogan: 'Science, Sky, Clock Tower',
             sideNavigation: [
@@ -28,16 +28,20 @@ export default defineNuxtConfig({
                 {
                     name: 'WebSite',
                     link: '/category/website-technique',
-                }, {
+                },
+                {
                     name: 'Dev',
                     link: '/category/development',
-                }, {
+                },
+                {
                     name: 'Life',
                     link: '/category/life',
-                }, {
+                },
+                {
                     name: 'Linux',
                     link: '/category/linux',
-                }, {
+                },
+                {
                     name: 'Uncated',
                     link: '/category/uncategorized',
                 },
