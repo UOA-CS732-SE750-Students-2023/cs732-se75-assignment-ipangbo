@@ -9165,27 +9165,27 @@ button.close {
 
 .pdmsg_modal .pdmsg_content.info:before {
     content: "";
-    background-image: url(theme_modules/pdMessage/pdmsg_content.info.before.svg?h=2XBS7)
+    /* background-image: url(theme_modules/pdMessage/pdmsg_content.info.before.svg?h=2XBS7) */
 }
 
 .pdmsg_modal .pdmsg_content.question:before {
     content: "";
-    background-image: url(theme_modules/pdMessage/pdmsg_content.question.before.svg?h=2hpg4)
+    /* background-image: url(theme_modules/pdMessage/pdmsg_content.question.before.svg?h=2hpg4) */
 }
 
 .pdmsg_modal .pdmsg_content.warning:before {
     content: "";
-    background-image: url(theme_modules/pdMessage/pdmsg_content.warning.before.svg?h=7Mn3k)
+    /* background-image: url(theme_modules/pdMessage/pdmsg_content.warning.before.svg?h=7Mn3k) */
 }
 
 .pdmsg_modal .pdmsg_content.error:before {
     content: "";
-    background-image: url(theme_modules/pdMessage/pdmsg_content.error.before.svg?h=1KRnz)
+    /* background-image: url(theme_modules/pdMessage/pdmsg_content.error.before.svg?h=1KRnz) */
 }
 
 .pdmsg_modal .pdmsg_content.success:before {
     content: "";
-    background-image: url(theme_modules/pdMessage/pdmsg_content.success.before.svg?h=3BY5K)
+    /* background-image: url(theme_modules/pdMessage/pdmsg_content.success.before.svg?h=3BY5K) */
 }
 
 .pdmsg_modal .pdmsg_content.waiting:before {
@@ -9193,7 +9193,7 @@ button.close {
     width: 20px;
     height: 20px;
     animation: pdMessage_Waiting 1.3s linear infinite;
-    background-image: url(theme_modules/pdMessage/pdmsg_content.waiting.before.svg?h=rQGOW)
+    /* background-image: url(theme_modules/pdMessage/pdmsg_content.waiting.before.svg?h=rQGOW) */
 }
 
 @keyframes pdMessage_Waiting {
@@ -9271,7 +9271,7 @@ button.close {
     top: -7px;
     box-shadow: 0 0 0 2px #fff;
     border-radius: 50%;
-    background: url(theme_modules/pdMessage/pdnotify.error.before.svg?h=1eYJ5) no-repeat 50%/65% 65%, linear-gradient(0deg, #0092ff, #20b8ff);
+    /* background: url(theme_modules/pdMessage/pdnotify.error.before.svg?h=1eYJ5) no-repeat 50%/65% 65%, linear-gradient(0deg, #0092ff, #20b8ff); */
     transition: .35s .35s
 }
 
@@ -9292,7 +9292,7 @@ button.close {
 }
 
 .pdnotify_wrapper .pdnotify.error:before {
-    background: url(theme_modules/pdMessage/pdnotify.error.before.svg?h=1eYJ5) no-repeat 50%/65% 65%, linear-gradient(0deg, #ff3838, #ff7849)
+    /* background: url(theme_modules/pdMessage/pdnotify.error.before.svg?h=1eYJ5) no-repeat 50%/65% 65%, linear-gradient(0deg, #ff3838, #ff7849) */
 }
 
 .pdnotify_wrapper .pdnotify.success {
@@ -9301,7 +9301,7 @@ button.close {
 }
 
 .pdnotify_wrapper .pdnotify.success:before {
-    background: url(theme_modules/pdMessage/pdnotify.success.before.svg?h=1iN9N) no-repeat 50%/65% 65%, linear-gradient(0deg, #52bb1d, #95d34b)
+    /* background: url(theme_modules/pdMessage/pdnotify.success.before.svg?h=1iN9N) no-repeat 50%/65% 65%, linear-gradient(0deg, #52bb1d, #95d34b) */
 }
 
 /* @font-face {

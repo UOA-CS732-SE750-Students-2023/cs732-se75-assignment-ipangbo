@@ -274,7 +274,7 @@ body {
     top: -7px;
     box-shadow: 0 0 0 2px #fff;
     border-radius: 50%;
-    background: url(theme_modules/pdMessage/pdnotify.error.before.svg?h=1eYJ5) no-repeat 50%/65% 65%, linear-gradient(0deg, #0092ff, #20b8ff);
+    /* background: url(theme_modules/pdMessage/pdnotify.error.before.svg?h=1eYJ5) no-repeat 50%/65% 65%, linear-gradient(0deg, #0092ff, #20b8ff); */
     transition: .35s .35s
 }
 
@@ -294,18 +294,18 @@ body {
     box-shadow: 0 5px 8px rgba(255, 73, 73, .5)
 }
 
-.pdnotify_wrapper .pdnotify.error:before {
+/* .pdnotify_wrapper .pdnotify.error:before {
     background: url(theme_modules/pdMessage/pdnotify.error.before.svg?h=1eYJ5) no-repeat 50%/65% 65%, linear-gradient(0deg, #ff3838, #ff7849)
-}
+} */
 
 .pdnotify_wrapper .pdnotify.success {
     background: linear-gradient(90deg, #61be33, #8fce44);
     box-shadow: 0 5px 8px rgba(104, 195, 59, .5)
 }
 
-.pdnotify_wrapper .pdnotify.success:before {
+/* .pdnotify_wrapper .pdnotify.success:before {
     background: url(theme_modules/pdMessage/pdnotify.success.before.svg?h=1iN9N) no-repeat 50%/65% 65%, linear-gradient(0deg, #52bb1d, #95d34b)
-}
+} */
 
 
 body .el-message--info {
