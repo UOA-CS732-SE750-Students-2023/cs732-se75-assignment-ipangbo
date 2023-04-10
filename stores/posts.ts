@@ -6,7 +6,6 @@ import {
     listAllPostsWithCategories,
     listNewestPosts,
     listPinnedPosts,
-    listPostsInCategories,
     getPostsCountRaw,
     listSearchResult
 } from "@/utils/http/posts";

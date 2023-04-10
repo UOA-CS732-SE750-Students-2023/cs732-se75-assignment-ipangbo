@@ -8,7 +8,7 @@
     <div id="respond" class="comment-respond">
         <form id="commentform" class="comment-form">
             <p class="comment-form-comment">
-                <textarea id="comment" name="comment" cols="45" rows="5" placeholder="You don't need to Login!"
+                <textarea id="comment" name="comment" cols="45" rows="5" :placeholder="placeholders.textarea"
                     v-model="content"></textarea>
             </p>
             <p class="comment-form-author comment-action" data-toggle="tooltip" title="" style="display: inline-block;">
@@ -17,8 +17,8 @@
                         <User />
                     </el-icon>
                 </label>
-                <input id="author" name="author" type="text" size="30" placeholder="Nickname *" required autocomplete="off"
-                    disableautocomplete="" v-model="name">
+                <input id="author" name="author" type="text" size="30" :placeholder="placeholders.nickname" required
+                    autocomplete="off" disableautocomplete="" v-model="name">
             </p>
             <p class="comment-form-email comment-action" data-toggle="tooltip" title="" style="display: inline-block;">
                 <label for="email">
@@ -26,8 +26,8 @@
                         <Message />
                     </el-icon>
                 </label>
-                <input id="email" name="email" type="text" size="30" placeholder="E-mail *" required autocomplete="off"
-                    disableautocomplete="" v-model="email">
+                <input id="email" name="email" type="text" size="30" :placeholder="placeholders.email" required
+                    autocomplete="off" disableautocomplete="" v-model="email">
             </p>
             <p class="comment-form-url comment-action" data-toggle="tooltip" title="" style="display: inline-block;"><label
                     for="url">
@@ -35,7 +35,7 @@
                         <Compass />
                     </el-icon>
                 </label>
-                <input id="url" name="url" type="text" size="30" placeholder="Your Website" autocomplete="off"
+                <input id="url" name="url" type="text" size="30" :placeholder="placeholders.website" autocomplete="off"
                     disableautocomplete="" v-model="url">
             </p>
 
@@ -44,7 +44,7 @@
                     <el-icon>
                         <CircleCheckFilled />
                     </el-icon>
-                    &nbsp;&nbsp;Send&nbsp;&nbsp;
+                    {{ sendButtonText }}
                 </button>
             </p>
         </form>
@@ -62,6 +62,13 @@ const email = ref('');
 const name = ref('');
 const url = ref('');
 const content = ref('');
+const sendButtonText = ref('Send');
+const placeholders = reactive({
+    textarea: "You don't need to Login!",
+    nickname: "Nickname *",
+    email: "E-mail *",
+    website: "Your Website",
+})
 
 const send = () => {
     sendComment({
@@ -79,4 +86,8 @@ const send = () => {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.post-comments .form-submit #submit {
+    width: 120px;
+}
+</style>
