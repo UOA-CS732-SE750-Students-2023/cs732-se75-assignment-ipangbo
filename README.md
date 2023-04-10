@@ -7,6 +7,8 @@
   />
 </a>
 
+Due to the size limitation of the CANVAS upload file, the video on CANVAS is in 720p. Go to [Youtube](https://youtu.be/Q3W9n6mAmhE) for a higher quality video.
+
 Please follow [Wiki Page](https://github.com/UOA-CS732-SE750-Students-2023/cs732-se75-assignment-ipangbo/wiki) for more information about running demo.
 
 ## Introduction
